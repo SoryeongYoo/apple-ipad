@@ -1227,6 +1227,14 @@ nav .menu li.active:hover a {
   margin-top: 50px;
 }
 
+
+/* Trade */
+.trade {
+  padding: 20px 20px 0;
+  background-color: var(--color-section);
+  text-align: center;
+}
+
 @keyframes sprite-icon {
 
   /* 1~10 */

@@ -1176,6 +1176,25 @@ nav .menu li.active:hover a {
 }
 
 
+/* AR */
+.ar{
+  background-color: var(--color-section);
+  padding: 20px 20px 0;
+}
+.ar .whitebox{
+  padding-bottom: 0;
+}
+
+.ar .inner{
+  display: flex;
+}
+.ar .inner > div{
+  max-width: 410px;
+  margin-top: 60px;
+  margin-right: 90px;
+}
+
+
 @keyframes sprite-icon {
 
   /* 1~10 */

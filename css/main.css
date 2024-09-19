@@ -1177,18 +1177,20 @@ nav .menu li.active:hover a {
 
 
 /* AR */
-.ar{
+.ar {
   background-color: var(--color-section);
   padding: 20px 20px 0;
 }
-.ar .whitebox{
+
+.ar .whitebox {
   padding-bottom: 0;
 }
 
-.ar .inner{
+.ar .inner {
   display: flex;
 }
-.ar .inner > div{
+
+.ar .inner>div {
   max-width: 410px;
   margin-top: 60px;
   margin-right: 90px;
@@ -1196,16 +1198,18 @@ nav .menu li.active:hover a {
 
 
 /* Environment */
-.environment{
+.environment {
   padding: 20px 20px 0;
   background-color: var(--color-section);
   text-align: center;
 }
-.environment .icon{
+
+.environment .icon {
   margin-left: auto;
   margin-right: auto;
 }
-.environment h1{
+
+.environment h1 {
   color: #03a10e;
 }
 

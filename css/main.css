@@ -45,6 +45,12 @@ p {
   line-height: 1.6;
 }
 
+sup {
+  margin-right: 6px;
+  font-size: .7em;
+  /* 글자의 수직 정렬 */
+  vertical-align: top;
+}
 
 /* Inner */
 .inner {

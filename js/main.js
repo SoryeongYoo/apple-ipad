@@ -52,7 +52,7 @@ searchShadowEl.addEventListener('click', hideSearch)
 function showSearch() {
   headerEl.classList.add('searching')
   // documentElement: 문서의 최상위 요소를 의미
-  document.documentElement.classList.add('fixed')
+  stopScroll()
   /*reverse를 사용해 배열 반대로 애니메이션 적용*/
   headerMenuEls.reverse().forEach(function (el, index) {
     //style: css 처리/ index: el의 개수 만큼 증가
@@ -70,7 +70,7 @@ function showSearch() {
 
 function hideSearch() {
   headerEl.classList.remove('searching')
-  document.documentElement.classList.remove('fixed')
+  playScroll()
   headerMenuEls.reverse().forEach(function (el, index) {
     //style: css 처리/ index: el의 개수 만큼 증가
     el.style.transitionDelay = index * .4 / headerMenuEls.length + 's'
@@ -82,6 +82,27 @@ function hideSearch() {
   searchDelayEls.reverse()
   searchInputEl.value = '' //검색 내용 초기화
 }
+
+function playScroll(){
+  document.documentElement.classList.remove('fixed')
+}
+
+function stopScroll(){
+  document.documentElement.classList.add('fixed')
+}
+
+
+// 헤더 메뉴 토글
+const menuStarterEl = document.querySelector('header .menu-starter')
+menuStarterEl.addEventListener('click', function () {
+  if (headerEl.classList.contains('menuing')){
+    headerEl.classList.remove('menuing')
+    playScroll()
+  }else {
+    headerEl.classList.add('menuing')
+    stopScroll()
+  }
+})
 
 
 // 요소의 가시성 관찰

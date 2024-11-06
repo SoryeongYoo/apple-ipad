@@ -46,7 +46,11 @@ const searchDelayEls = [...searchWrapEl.querySelectorAll('li')]
 
 // 콜백 함수
 searchStarterEl.addEventListener('click', showSearch)
-searchCloserEl.addEventListener('click', hideSearch)
+searchCloserEl.addEventListener('click', function(event){
+  // 이벤트 버블링(상위요소로 전파) 현상을 막아줌
+  event.stopPropagation()
+  hideSearch()
+})
 searchShadowEl.addEventListener('click', hideSearch)
 
 function showSearch() {
@@ -97,12 +101,34 @@ const menuStarterEl = document.querySelector('header .menu-starter')
 menuStarterEl.addEventListener('click', function () {
   if (headerEl.classList.contains('menuing')){
     headerEl.classList.remove('menuing')
+    searchInputEl.value = ''
     playScroll()
   }else {
     headerEl.classList.add('menuing')
     stopScroll()
   }
 })
+
+// 헤더 검색
+const searchTextFieldEl=document.querySelector('header .textfield')
+const searchCancelEl= document.querySelector('header .search-canceler')
+searchTextFieldEl.addEventListener('click', function(){
+  headerEl.classList.add('searching--mobile')
+  searchInputEl.focus()
+})
+searchCancelEl.addEventListener('click', function(){
+  headerEl.classList.remove('searching--mobile')
+})
+
+//화면 크기가 조정이 되면.
+window.addEventListener('resize', function(){
+  if(window.innerWidth <=740){
+    headerEl.classList.remove('searching')
+  }else{
+    headerEl.classList.remove('searching--mobile')
+  }
+})
+
 
 
 // 요소의 가시성 관찰

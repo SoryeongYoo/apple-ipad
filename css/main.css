@@ -310,6 +310,7 @@ header {
   position: relative;
   /*z-index 추가를 위해 position 값이 필요함*/
   z-index: 9;
+  transition: .4s;
 }
 
 header .inner {
@@ -469,6 +470,7 @@ header .search .shadow {
 header .search .textfield {
   position: relative;
 }
+
 
 header .search input {
   width: 100%;
@@ -636,6 +638,28 @@ header.searching .search .autocompletes li {
   header .search .textfield {
     border-radius: 10px;
     background-color: #1d1d1d;
+    /* width:auto -> 최대한 늘어나는 성질, 100%로 바꿔줌으로써 수치를 가짐 */
+    width: 100%;
+    transition: .2s;
+  }
+
+  header .search .search-closer {
+    display: none;
+  }
+
+  header .search .search-canceler {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    color: var(--color-link);
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: .4s;
+    visibility: hidden;
+    opacity: 0;
   }
 
   header .search input,
@@ -651,6 +675,8 @@ header.searching .search .autocompletes li {
     background-color: transparent;
     visibility: hidden;
     opacity: 0;
+    transition: .3s;
+    transform: translate(0, -100px);
   }
 
   header .search .autocompletes ul li {
@@ -682,7 +708,7 @@ header.searching .search .autocompletes li {
     padding: 0 20px;
     box-sizing: border-box;
     transition: .4s;
-    transform: translate(0,-50px);
+    transform: translate(0, -50px);
   }
 
   header .clone-menu ul {
@@ -741,6 +767,32 @@ header.searching .search .autocompletes li {
     opacity: 1;
     transform: translate(0, 0);
   }
+
+  header.menuing.searching--mobile {
+    transform: translate(0, -30px);
+  }
+
+  header.menuing.searching--mobile .search .textfield {
+    width: calc(100% - 55px);
+  }
+
+  header.menuing.searching--mobile .search .autocompletes {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  header.menuing.searching--mobile .search .search-canceler {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header.menuing.searching--mobile .clone-menu {
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(0, 100px);
+  }
+
 }
 
 /* Navigation */
